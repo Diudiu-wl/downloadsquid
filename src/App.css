@@ -1,38 +1,74 @@
-.App {
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto 30px; /* 增加顶部 margin，将顶部边距设置为 50px */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  font-size: 18px;
+  color: #666;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button.windows {
+  background-color: #0078D6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.macos {
+  background-color: #333;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/*下半部分样式*/
+.tutorial {
+  margin: 10px 0;
+  padding: 10px;
+  padding-left: 120px; 
+  text-align: left; 
+}
+
+.step {
+  margin-bottom: 40px; 
+  font-size: 20px; 
+  
+}
+
+.step img {
+  max-width: 100%;
+  height: auto; 
+  display: block; 
+  margin-top: 10px;
+}
+
+.tutorial p {
+  font-size: 18px; 
+  color: #666; 
+  margin-bottom: 10px; 
 }
