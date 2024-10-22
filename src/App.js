@@ -73,7 +73,7 @@ function App() {
           <img src={`${process.env.PUBLIC_URL}/images/kk2.png`} alt="Step 3" />
         </div>
         <div className="step">
-          <span>4. 添加此软件并打勾</span>
+          <span>4. 点击"+"号添加此软件，并打勾</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk3.png`} alt="Step 4" />
         </div>
         <div className="step">
