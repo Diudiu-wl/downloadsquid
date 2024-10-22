@@ -8,7 +8,7 @@ body {
 
 .container {
   max-width: 800px;
-  margin: 50px auto 30px; /* 增加顶部 margin，将顶部边距设置为 50px */
+  margin: 50px auto 20px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -46,29 +46,30 @@ button:hover {
   opacity: 0.8;
 }
 
-/*下半部分样式*/
+/* 新增的样式 */
 .tutorial {
-  margin: 10px 0;
   padding: 10px;
-  padding-left: 120px; 
-  text-align: left; 
+  margin-left: 100px; /* 默认左边距 */
+  text-align: left;
+}
+
+/* 针对较小屏幕的媒体查询，调整下半部分的布局 */
+@media (max-width: 768px) {
+  .tutorial {
+    margin-left: 0; /* 手机上取消左边距，自动适应屏幕 */
+    padding: 0 10px; /* 增加内边距，避免内容贴边 */
+  }
 }
 
 .step {
-  margin-bottom: 40px; 
-  font-size: 20px; 
-  
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .step img {
   max-width: 100%;
-  height: auto; 
-  display: block; 
+  height: auto;
+  display: block;
   margin-top: 10px;
-}
-
-.tutorial p {
-  font-size: 18px; 
-  color: #666; 
-  margin-bottom: 10px; 
 }
