@@ -39,7 +39,7 @@ button.windows {
 }
 
 button.macos {
-  background-color: #333;
+  background-color: #ee8bba;
 }
 
 button:hover {
@@ -51,6 +51,53 @@ button:hover {
   padding: 10px;
   margin-left: 100px; 
   text-align: left;
+}
+
+.about-author-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /*text-align: center;*/
+}
+
+.about-button {
+  background-color: #6fc9ec;
+  color: white;
+  border: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.about-button:hover {
+  background-color: #88cef0;
+}
+  
+
+.about-info {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.about-info p {
+  margin: 0;
+  padding: 0;
+}
+
+.about-image {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 

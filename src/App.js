@@ -1,8 +1,30 @@
 // App.js
-import React from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import './App.css';
 
 function App() {
+  const [showAbout, setShowAbout] = useState(false);
+  const [aboutImage, setAboutImage] = useState(null);  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showAbout && !event.target.closest(".about-author-container")) {
+        setShowAbout(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showAbout]);
+  const handleAboutClick = () => {
+    setShowAbout(!showAbout);
+    if (!showAbout) {
+      setAboutImage(`${process.env.PUBLIC_URL}/images/tapioca.png`);  
+    } else {
+      setAboutImage(null);  
+    }
+  };
+
   return (
     <div>
       <div className="container">
@@ -11,13 +33,13 @@ function App() {
         <div>
           <button
             className="windows"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/squidy.exe`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/点击召唤小鱿鱼.exe`}
           >
             Windows
           </button>
           <button
             className="macos"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/keroppiii.dmg.zip`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyouyuu.dmg.zip`}
           >
             MacOS
           </button>
@@ -82,7 +104,23 @@ function App() {
         </div>
         
       </div>
+
+      <div className="about-author-container">
+      <button onClick={handleAboutClick} className="about-button">
+          关于作者
+        </button>
+        {showAbout && (
+          <div className="about-info">
+          <p>tapioca :</p>
+          {aboutImage && <img src={aboutImage} alt="About the Author" className="about-image" />}  
+          {/*<p>tapioca</p>*/}
+          <p>日常破防的中刷使。</p>
+          </div>
+        )}
+      </div>
     </div>
+
+    
 
     
   );
