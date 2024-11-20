@@ -1,0 +1,15 @@
+.back-button {
+    background-color: #6fc9ec;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 20px auto;
+    display: block; /* 居中*/
+  }
+  
+  .back-button:hover {
+    background-color: #88cef0;
+  }
+  
