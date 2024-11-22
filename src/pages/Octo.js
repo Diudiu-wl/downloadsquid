@@ -21,7 +21,7 @@ function Octo() {
           </button>
           <button
             className="macos"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaozhangyuu.dmg.zip`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaozhang.dmg.zip`}
           >
             MacOS
           </button>
