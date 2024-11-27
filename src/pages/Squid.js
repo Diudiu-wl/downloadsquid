@@ -9,6 +9,7 @@ function Squid() {
   const [showModal, setShowModal] = useState(false);
   const [codeInput, setCodeInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showTooltip, setShowTooltip] = useState(false);
   const navigate = useNavigate(); 
 
   const validCode = "6688"; 
@@ -114,7 +115,44 @@ function Squid() {
         </div>
       )}
 
-      {/* 新增的 MacOS 安装教程 */}
+      
+      {/* 打赏按钮 */}
+      <div className="text-button-container" style={{ position: "relative" }}>
+        {/*<p className="intro-text">你的支持就是我最大的动力！</p>*/}
+        <button
+          className="hover-button"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+        >
+          打赏
+        </button>
+
+        
+        {showTooltip && (
+          <div className="tooltip">
+            <div className="image-container">
+              <div className="image-block">
+                <p>微信：</p>
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/wechat.jpg`}
+                  alt="QR 1"
+                  className="fixed-image"
+                />
+              </div>
+              <div className="image-block">
+                <p>支付宝：</p>
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/alipay.jpg`}
+                  alt="QR 2"
+                  className="fixed-image"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      
+      {/* MacOS教程 */}
       <div className="tutorial">
         
         <h2>如果碰到任何问题欢迎联系作者！</h2> 
@@ -147,7 +185,7 @@ function Squid() {
         </div>
       </div>
 
-      {/* 新增的 小鱿鱼额外的设置教程 */}
+      {/*小鱿鱼额外的设置教程 */}
       <div className="tutorial">
         
         <h2>下面是运行小鱿鱼软件后需要进行的一些隐私设置（也是MacOS上的，不设置的话只能识别壁纸）：</h2>

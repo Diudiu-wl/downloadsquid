@@ -44,6 +44,7 @@ body {
     background-color: #ee8bba;
   }
   
+  
   button:hover {
     opacity: 0.8;
   }
@@ -185,6 +186,61 @@ body {
     font-size: 14px;
     margin-top: 10px;
   }
+
+  
+  .hover-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    background-color: #ee8bba;
+    
+  }
+
+  .hover-button:hover {  
+    background-color: #f1a2c8;
+  }
+    
+  
+  .text-button-container {
+    display: flex;
+    align-items: center; /* 文字和按钮垂直居中对齐 */
+    gap: 0px; /* 文字与按钮之间的间距 */
+    position: relative; /* 让 Tooltip 基于该容器定位 */  
+    justify-content: center; /* 水平居中 */
+    
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: -240px; /* 按钮的正上方 */
+    left: 50%; 
+    transform: translateX(-50%); /*-130*/
+    background: #f1a2c8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  .image-container {
+    display: flex;
+    gap: 10px; /* 图片之间的间距 */
+  }
+  
+  .image-block {
+    text-align: center;
+  }
+  
+  .fixed-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
   
   
   @media (max-width: 768px) {
