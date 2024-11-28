@@ -9,10 +9,36 @@ function Squid() {
   const [showModal, setShowModal] = useState(false);
   const [codeInput, setCodeInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false); // 控制悬停提示
+  const [showMessage, setShowMessage] = useState(false); // 控制弹窗显示
+  const timeoutRef = useRef(null); // 引用保存计时器 ID
   const navigate = useNavigate(); 
 
   const validCode = "6688"; 
+
+  const handleMouseEnter = () => {
+    setShowTooltip(true);
+
+    // 开始计时
+    timeoutRef.current = setTimeout(() => {
+      setShowMessage(true); // 显示弹窗
+    }, 5000); // 5 秒后触发
+  };
+
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+
+    // 鼠标移开时清除计时器
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  };
+
+  const closeMessage = () => {
+    setShowMessage(false); // 关闭弹窗
+  };
+
+
 
   const handleDownloadClick = () => {
     setShowModal(true); 
@@ -115,10 +141,10 @@ function Squid() {
         </div>
       )}
 
+      {/*
       
-      {/* 打赏按钮 */}
       <div className="text-button-container" style={{ position: "relative" }}>
-        {/*<p className="intro-text">你的支持就是我最大的动力！</p>*/}
+      
         <button
           className="hover-button"
           onMouseEnter={() => setShowTooltip(true)}
@@ -127,7 +153,6 @@ function Squid() {
           打赏
         </button>
 
-        
         {showTooltip && (
           <div className="tooltip">
             <div className="image-container">
@@ -150,12 +175,59 @@ function Squid() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
       
-      {/* MacOS教程 */}
+      {/* 文字部分 */}
       <div className="tutorial">
+
+        {/* 打赏按钮 */}
+        <div className="text-button-container" style={{ position: "relative" }}>
+          <h2>如果碰到任何问题欢迎联系作者！</h2> 
+          <button
+            className="hover-button"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            打赏
+          </button>
         
-        <h2>如果碰到任何问题欢迎联系作者！</h2> 
+          {showTooltip && (
+            <div className="tooltip">
+              <div className="image-container">
+                <div className="image-block">
+                  <p>微信：</p>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/wechat.jpg`}
+                    alt="QR 1"
+                    className="fixed-image"
+                  />
+                </div>
+                <div className="image-block">
+                  <p>支付宝：</p>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/alipay.jpg`}
+                    alt="QR 2"
+                    className="fixed-image"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 弹窗显示 */}
+          {showMessage && (
+            <div className="message-popup">
+              <div className="message-content">
+                <p>感谢打赏，你的支持就是我最大的动力！</p>
+                <p>小章鱼领取码：6688</p>
+                <button onClick={closeMessage}>关闭</button>
+              </div>
+            </div>
+          )}
+
+        </div>
+        
+        {/*MacOS教程*/}
         <h2>Windows上运行时如果弹出小蓝窗就点击：更多信息-&gt;仍要运行 就行</h2> 
         <p>*电脑会觉得这是可疑软件只是因为发布者未知而已</p>
         <h2>下面是MacOS版安装小指导（Windows不用看哦）：</h2>

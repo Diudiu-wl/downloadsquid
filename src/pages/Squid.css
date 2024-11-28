@@ -205,9 +205,9 @@ body {
   .text-button-container {
     display: flex;
     align-items: center; /* 文字和按钮垂直居中对齐 */
-    gap: 0px; /* 文字与按钮之间的间距 */
+    gap: 10px; /* 文字与按钮之间的间距 */
     position: relative; /* 让 Tooltip 基于该容器定位 */  
-    justify-content: center; /* 水平居中 */
+    /*justify-content: center;*/
     
   }
   
@@ -215,7 +215,7 @@ body {
     position: absolute;
     top: -240px; /* 按钮的正上方 */
     left: 50%; 
-    transform: translateX(-50%); /*-130*/
+    transform: translateX(-98%); /*-130*/
     background: #f1a2c8;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -239,6 +239,42 @@ body {
     object-fit: cover;
     border: 1px solid #ddd;
     border-radius: 5px;
+  }
+
+
+  .message-popup {
+    position: fixed; /* 固定在屏幕中央 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 2000;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .message-content p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .message-content button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message-content button:hover {
+    background-color: #0056b3;
   }
   
   
