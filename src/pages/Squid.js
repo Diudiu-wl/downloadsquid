@@ -89,7 +89,7 @@ function Squid() {
   return (
     <div>
       <div className="container">
-        <p>*注意：11.22之后更新了（把章鱿互动增加到2种了）！11.22前下载的请重新下载小鱿鱼和小章鱼！</p>
+        <p>*12.2更新小鱿鱼：改善了一个小细节（粘在边边后不会触发颜色表情了），12.2之前下载的小鱿鱼请重新下载！</p>
         <h1>欢迎来到小鱿鱼领养处</h1>
         <p>根据你的电脑来下载对应的小鱿鱼吧！</p>
         <div>
@@ -101,7 +101,7 @@ function Squid() {
           </button>
           <button
             className="macos"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyou.dmg.zip`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyouyu.dmg.zip`}
           >
             MacOS
           </button>
