@@ -215,7 +215,7 @@ body {
     position: absolute;
     top: -240px; /* 按钮的正上方 */
     left: 50%; 
-    transform: translateX(-98%); /*-130*/
+    transform: translateX(-50%); /*-130*/
     background: #f1a2c8;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -275,6 +275,38 @@ body {
   
   .message-content button:hover {
     background-color: #0056b3;
+  }
+
+
+  .language-menu {
+    position: fixed;    
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+  }
+    
+  
+  .language-switcher {
+    display: flex;
+    gap: 10px; /* 按钮之间的间距 */
+    justify-content: center; /* 居中排列按钮 */
+    padding: 10px;
+  }
+  
+  .language-button {
+    padding: 5px 15px; 
+    border: 1px solid #ccc; 
+    background-color: #0078d6; 
+    color: white; 
+    font-size: 14px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .language-button:hover {
+    opacity: 0.8;
   }
   
   

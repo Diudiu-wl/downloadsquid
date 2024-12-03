@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import './Squid.css';
 
 function Squid() {
@@ -9,10 +10,12 @@ function Squid() {
   const [showModal, setShowModal] = useState(false);
   const [codeInput, setCodeInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [showTooltip, setShowTooltip] = useState(false); // 控制悬停提示
-  const [showMessage, setShowMessage] = useState(false); // 控制弹窗显示
+  const [showTooltip, setShowTooltip] = useState(false); 
+  const [showMessage, setShowMessage] = useState(false); 
   const timeoutRef = useRef(null); // 引用保存计时器 ID
   const navigate = useNavigate(); 
+
+  const { t, i18n } = useTranslation();
 
   const validCode = "6688"; 
 
@@ -21,7 +24,7 @@ function Squid() {
 
     // 开始计时
     timeoutRef.current = setTimeout(() => {
-      setShowMessage(true); // 显示弹窗
+      setShowMessage(true); 
     }, 5000); // 5 秒后触发
   };
 
@@ -35,7 +38,7 @@ function Squid() {
   };
 
   const closeMessage = () => {
-    setShowMessage(false); // 关闭弹窗
+    setShowMessage(false); 
   };
 
 
@@ -48,7 +51,7 @@ function Squid() {
     if (codeInput === validCode) {
       navigate("/octo");
     } else {
-      setErrorMessage("领取码错误，请重新输入");
+      setErrorMessage(t("error"));
     }
   };
 
@@ -63,6 +66,13 @@ function Squid() {
     if (e.key === "Enter") {
       handleConfirmCode();
     }
+  };
+
+
+  // 更改语言
+  const changeLanguage = (lng) => {    
+    i18n.changeLanguage(lng); // 切换语言
+    localStorage.setItem('selectedLanguage', lng); // 存储语言到 localStorage
   };
 
 
@@ -88,10 +98,18 @@ function Squid() {
 
   return (
     <div>
+      {/* 左上角的语言切换菜单 */}
+      <div className="language-menu">        
+        <div className="language-switcher">
+          <button className="language-button" onClick={() => changeLanguage('zh')}>中文</button>
+          <button className="language-button" onClick={() => changeLanguage('en')}>English</button>
+          <button className="language-button" onClick={() => changeLanguage('jp')}>日本語</button>
+        </div>
+      </div>
       <div className="container">
-        <p>*12.2更新小鱿鱼：改善了一个小细节（粘在边边后不会触发颜色表情了），12.2之前下载的小鱿鱼请重新下载！</p>
-        <h1>欢迎来到小鱿鱼领养处</h1>
-        <p>根据你的电脑来下载对应的小鱿鱼吧！</p>
+        <p>{t("note")}</p>
+        <h1>{t("welcome")}</h1>
+        <p>{t("describe")}</p>
         <div>
           <button
             className="windows"
@@ -107,10 +125,10 @@ function Squid() {
           </button>
         </div>
 
-        <p>右键小鱿鱼查看说明书来获得小章鱼的领取码吧！</p>
+        <p>{t("octodescribe")}</p>
         <div>
         <button className="octo-download-button" onClick={handleDownloadClick}>
-          领取小章鱼
+          {t("octodownload")}
         </button>
         </div>
         
@@ -122,20 +140,20 @@ function Squid() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2>请输入领取码</h2>
+            <h2>{t("entercode")}</h2>
             <input
               type="text"
               value={codeInput}
               onChange={(e) => setCodeInput(e.target.value)}
-              onKeyDown={handleKeyDown} // 新增的回车监听
-              placeholder="领取码"
+              onKeyDown={handleKeyDown} //回车监听
+              placeholder="小章鱼领取码"
             />
             <button className="confirm-button" onClick={handleConfirmCode}>
-              确认
+             {t("confirm")}
             </button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <button className="cancel-button" onClick={closeModal}>
-              取消
+             {t("cancel")}
             </button>
           </div>
         </div>
@@ -182,28 +200,29 @@ function Squid() {
 
         {/* 打赏按钮 */}
         <div className="text-button-container" style={{ position: "relative" }}>
-          <h2>如果碰到任何问题欢迎联系作者！</h2> 
+          <h2>{t("contact")}</h2> 
           <button
             className="hover-button"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            打赏
+            {t("donate")}
           </button>
         
           {showTooltip && (
             <div className="tooltip">
               <div className="image-container">
                 <div className="image-block">
-                  <p>微信：</p>
+                  <p>{t("wechat")}</p>
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/wechat.jpg`}
+                    src = {`${process.env.PUBLIC_URL}${t('image')}`}
+                    
                     alt="QR 1"
                     className="fixed-image"
                   />
                 </div>
                 <div className="image-block">
-                  <p>支付宝：</p>
+                  <p>{t("alipay")}</p>
                   <img
                     src={`${process.env.PUBLIC_URL}/images/alipay.jpg`}
                     alt="QR 2"
@@ -218,9 +237,9 @@ function Squid() {
           {showMessage && (
             <div className="message-popup">
               <div className="message-content">
-                <p>感谢打赏，你的支持就是我最大的动力！</p>
-                <p>小章鱼领取码：6688</p>
-                <button onClick={closeMessage}>关闭</button>
+                <p>{t("thank")}</p>
+                <p>{t("code")}</p>
+                <button onClick={closeMessage}>{t("close")}</button>
               </div>
             </div>
           )}
@@ -228,31 +247,31 @@ function Squid() {
         </div>
         
         {/*MacOS教程*/}
-        <h2>Windows上运行时如果弹出小蓝窗就点击：更多信息-&gt;仍要运行 就行</h2> 
-        <p>*电脑会觉得这是可疑软件只是因为发布者未知而已</p>
-        <h2>下面是MacOS版安装小指导（Windows不用看哦）：</h2>
+        <h2>{t("wintip")}</h2> 
+        <p>{t("notice")}</p>
+        <h2>{t("mactip")}</h2>
         <div className="step">
-          <span>1. 把软件图标拖到 <strong>Applications</strong> 中</span>
+          <span>{t("i1")}<strong>Applications</strong>{t("i2")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/1.jpg`} alt="Step 1" />
         </div>
         <div className="step">
-          <span>2. 弹出此窗口后点击右上方问号</span>
+          <span>{t("i3")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/2.jpeg`} alt="Step 2" />
         </div>
         <div className="step">
-          <span>3. 点击“为我打开通用面板”</span>
+          <span>{t("i4")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/3.jpeg`} alt="Step 3" />
         </div>
         <div className="step">
-          <span>4. 选择“仍要打开”</span>
+          <span>{t("i5")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/4.jpeg`} alt="Step 4" />
         </div>
         <div className="step">
-          <span>5. 完成以上步骤后软件会在启动台出现</span>
+          <span>{t("i6")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/5.jpeg`} alt="Step 5" />
         </div>
         <div className="step">
-          <span>6. 这样就拥有啦</span>
+          <span>{t("i7")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/6.jpg`} alt="Step 6" />
         </div>
       </div>
@@ -260,40 +279,46 @@ function Squid() {
       {/*小鱿鱼额外的设置教程 */}
       <div className="tutorial">
         
-        <h2>下面是运行小鱿鱼软件后需要进行的一些隐私设置（也是MacOS上的，不设置的话只能识别壁纸）：</h2>
+        <h2>{t("macsetting")}</h2>
         <div className="step">
-          <span>1. 打开软件后会马上出现这样的提示</span>
+          <span>{t("s1")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk0.png`} alt="Step 1" />
         </div>
         <div className="step">
-          <span>2. 点击左下角</span>
+          <span>{t("s2")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk1.png`} alt="Step 2" />
         </div>
         <div className="step">
-          <span>3. 输入密码（开机密码）</span>
+          <span>{t("s3")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk2.png`} alt="Step 3" />
         </div>
         <div className="step">
-          <span>4. 点击"+"号添加此软件，并打勾</span>
+          <span>{t("s4")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk3.png`} alt="Step 4" />
         </div>
         <div className="step">
-          <span>5. 选择“以后”之后关闭小鱿鱼再重新打开小鱿鱼就行</span>
+          <span>{t("s5")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/kk4.png`} alt="Step 5" />
         </div>
+
         
+        
+      </div>
+
+      <div className="tutorial">
+      <h2>{t("s6")}</h2>
       </div>
 
       <div className="about-author-container">
       <button onClick={handleAboutClick} className="about-button">
-          关于作者
+        {t("author")}
         </button>
         {showAbout && (
           <div className="about-info">
           <p>tapioca :</p>
           {aboutImage && <img src={aboutImage} alt="About the Author" className="about-image" />}  
           {/*<p>tapioca</p>*/}
-          <p>日常破防的中刷使。</p>
+          <p>{t("about")}</p>
           </div>
         )}
       </div>

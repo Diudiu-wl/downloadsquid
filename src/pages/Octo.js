@@ -1,17 +1,26 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import i18n from '../i18n';
+import { useTranslation } from "react-i18next";
 import "./Octo.css";
 
 function Octo() {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  
+
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  if (savedLanguage) {
+    i18n.changeLanguage(savedLanguage); // 设置语言
+  }
 
 
   return (
     <div className="octo-container">
       <div className="container">
-        <h1>恭喜获得小章鱼</h1>
-        <p>根据你的电脑来下载对应的小章鱼吧！</p>
+        <h1>{t("congrats")}</h1>
+        <p>{t("instruct")}</p>
         <div>
           <button
             className="windows"
@@ -29,7 +38,7 @@ function Octo() {
       </div>
  
       <button onClick={() => navigate('/')} className="back-button">
-        返回
+      {t("back")}
       </button>
     </div>
   );
