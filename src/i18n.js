@@ -142,7 +142,7 @@ const resources = {
 
 // 初始化 i18next
 i18n
-  //.use(LanguageDetector) // 检测用户语言
+  .use(LanguageDetector) // 检测用户语言
   .use(initReactI18next) 
   .init({
     resources,
