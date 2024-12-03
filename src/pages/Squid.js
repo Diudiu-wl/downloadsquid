@@ -159,46 +159,62 @@ function Squid() {
         </div>
       )}
 
-      {/*
+      <div className="tutorial">
+        <h2>{t("contact")}</h2>
+      </div>
       
       <div className="text-button-container" style={{ position: "relative" }}>
-      
-        <button
-          className="hover-button"
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-        >
-          打赏
-        </button>
-
-        {showTooltip && (
-          <div className="tooltip">
-            <div className="image-container">
-              <div className="image-block">
-                <p>微信：</p>
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/wechat.jpg`}
-                  alt="QR 1"
-                  className="fixed-image"
-                />
-              </div>
-              <div className="image-block">
-                <p>支付宝：</p>
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/alipay.jpg`}
-                  alt="QR 2"
-                  className="fixed-image"
-                />
+          
+          <button
+            className="hover-button"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {t("donate")}
+          </button>
+        
+          {showTooltip && (
+            <div className="tooltip">
+              <div className="image-container">
+                <div className="image-block">
+                  <p>{t("wechat")}</p>
+                  <img
+                    src = {`${process.env.PUBLIC_URL}${t('image')}`}
+                    
+                    alt="QR 1"
+                    className="fixed-image"
+                  />
+                </div>
+                <div className="image-block">
+                  <p>{t("alipay")}</p>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/alipay.jpg`}
+                    alt="QR 2"
+                    className="fixed-image"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </div> */}
+          )}
+
+          
+          {showMessage && (
+            <div className="message-popup">
+              <div className="message-content">
+                <p>{t("thank")}</p>
+                <p>{t("code")}</p>
+                <button onClick={closeMessage}>{t("close")}</button>
+              </div>
+            </div>
+          )}
+
+        </div>
       
       {/* 文字部分 */}
       <div className="tutorial">
 
-        {/* 打赏按钮 */}
+
+        {/*
         <div className="text-button-container" style={{ position: "relative" }}>
           <h2>{t("contact")}</h2> 
           <button
@@ -233,7 +249,7 @@ function Squid() {
             </div>
           )}
 
-          {/* 弹窗显示 */}
+          
           {showMessage && (
             <div className="message-popup">
               <div className="message-content">
@@ -244,7 +260,8 @@ function Squid() {
             </div>
           )}
 
-        </div>
+        </div>*/}
+        
         
         {/*MacOS教程*/}
         <h2>{t("wintip")}</h2> 

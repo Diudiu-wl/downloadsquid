@@ -194,6 +194,7 @@ body {
     cursor: pointer;
     position: relative;
     background-color: #ee8bba;
+    /*display: block;*/
     
   }
 
@@ -207,7 +208,8 @@ body {
     align-items: center; /* 文字和按钮垂直居中对齐 */
     gap: 10px; /* 文字与按钮之间的间距 */
     position: relative; /* 让 Tooltip 基于该容器定位 */  
-    /*justify-content: center;*/
+    justify-content: center;
+    
     
   }
   
@@ -281,7 +283,7 @@ body {
   .language-menu {
     position: fixed;    
     top: 10px;
-    left: 10px;
+    left: 3px;
     display: flex;
     align-items: center;
   }
@@ -289,10 +291,13 @@ body {
   
   .language-switcher {
     display: flex;
-    gap: 10px; /* 按钮之间的间距 */
-    justify-content: center; /* 居中排列按钮 */
+    flex-direction: column; /* 垂直排列 */
+    gap: 10px; /* 按钮之间的垂直间距 */
+    justify-content: flex-start; /* 从上到下排列按钮 */
+    align-items: center; /* 水平居中对齐 */
     padding: 10px;
-  }
+}
+
   
   .language-button {
     padding: 5px 15px; 
