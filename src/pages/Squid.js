@@ -159,6 +159,7 @@ function Squid() {
         </div>
       )}
 
+{/*
       <div className="tutorial">
         <h2>{t("contact")}</h2>
       </div>
@@ -208,12 +209,11 @@ function Squid() {
             </div>
           )}
 
-        </div>
+        </div>*/}
       
-      {/* 文字部分 */}
+     
       <div className="tutorial">
-
-
+      <h2>{t("contact")}</h2>
         {/*
         <div className="text-button-container" style={{ position: "relative" }}>
           <h2>{t("contact")}</h2> 
