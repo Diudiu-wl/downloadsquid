@@ -119,7 +119,7 @@ function Squid() {
           </button>
           <button
             className="macos"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyouyu.dmg.zip`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyou.dmg.zip`}
           >
             MacOS
           </button>
@@ -159,7 +159,7 @@ function Squid() {
         </div>
       )}
 
-{/*
+
       <div className="tutorial">
         <h2>{t("contact")}</h2>
       </div>
@@ -209,11 +209,11 @@ function Squid() {
             </div>
           )}
 
-        </div>*/}
+        </div>
       
      
       <div className="tutorial">
-      <h2>{t("contact")}</h2>
+      
         {/*
         <div className="text-button-container" style={{ position: "relative" }}>
           <h2>{t("contact")}</h2> 
