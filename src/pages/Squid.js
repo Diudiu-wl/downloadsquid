@@ -113,7 +113,7 @@ function Squid() {
         <div>
           <button
             className="windows"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/点击召唤小鱿鱼(新!.exe`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/点击召唤小鱿鱼.exe`}
           >
             Windows
           </button>
