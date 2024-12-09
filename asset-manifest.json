@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/downloadsquid/static/css/main.447f75cb.css",
-    "main.js": "/downloadsquid/static/js/main.4982e04b.js",
+    "main.js": "/downloadsquid/static/js/main.9bbe6c39.js",
     "index.html": "/downloadsquid/index.html",
     "main.447f75cb.css.map": "/downloadsquid/static/css/main.447f75cb.css.map",
-    "main.4982e04b.js.map": "/downloadsquid/static/js/main.4982e04b.js.map"
+    "main.9bbe6c39.js.map": "/downloadsquid/static/js/main.9bbe6c39.js.map"
   },
   "entrypoints": [
     "static/css/main.447f75cb.css",
-    "static/js/main.4982e04b.js"
+    "static/js/main.9bbe6c39.js"
   ]
 }
