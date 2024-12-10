@@ -24,7 +24,7 @@ function Octo() {
         <div>
           <button
             className="windows"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaozhangyu.exe`}
+            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/点击召唤小章鱼.exe`}
           >
             Windows
           </button>
