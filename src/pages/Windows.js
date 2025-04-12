@@ -113,7 +113,7 @@ function Windows() {
         <div>
           <button
             className="windows"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaoyouyu.exe`}
+            onClick={() => window.open('https://github.com/Diudiu-wl/downloadsquid/releases/download/v1.0.0/xiaoyouyu.exe')}
           >
             Windows
           </button>
