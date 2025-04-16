@@ -47,6 +47,10 @@ function Windows() {
     navigate("/mac");
   };
 
+  const onHistoryClick = () => {
+    navigate("/history");
+  };
+
   const handleConfirmCode = () => {
     if (codeInput === validCode) {
       navigate("/mac");
@@ -119,6 +123,10 @@ function Windows() {
           </button>
           <button className="macos" onClick={handleDownloadClick}>
           MacOS
+        </button>
+
+        <button className="sumikko" onClick={onHistoryClick}>
+        {t("viewhistory")}
         </button>
         </div>
         
