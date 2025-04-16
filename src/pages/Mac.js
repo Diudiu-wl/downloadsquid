@@ -25,13 +25,13 @@ function Mac() {
         <div>
           <button
             className="sumikko"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/点击召唤小章鱼.exe`}
+            onClick={() => window.open('https://github.com/Diudiu-wl/downloadsquid/releases/download/v1.0.1/xiaoyouyu.dmg.zip')}
           >
             {t("intel")}
           </button>
           <button
             className="sumikko"
-            onClick={() => window.location.href = `${process.env.PUBLIC_URL}/downloads/xiaozhang.dmg.zip`}
+            onClick={() => window.open('https://github.com/Diudiu-wl/downloadsquid/releases/download/v1.0.1/xiaoyouyu.dmg.zip')}
           >
             {t("apple")}
           </button>
@@ -62,16 +62,43 @@ function Mac() {
           <span>{t("i5")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/4.jpeg`} alt="Step 4" />
         </div>
+        
         <div className="step">
           <span>{t("i6")}</span>
-          <img src={`${process.env.PUBLIC_URL}/images/5.jpeg`} alt="Step 5" />
-        </div>
-        <div className="step">
-          <span>{t("i7")}</span>
-          <img src={`${process.env.PUBLIC_URL}/images/6.jpg`} alt="Step 6" />
+          <img src={`${process.env.PUBLIC_URL}/images/7.png`} alt="Step 5" />
         </div>
 
       </div>
+
+        {/*小鱿鱼额外的设置教程 */}
+        <div className="tutorial">
+        
+        <h2>{t("macsetting")}</h2>
+        <div className="step">
+          <span>{t("s1")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk0.png`} alt="Step 1" />
+        </div>
+        <div className="step">
+          <span>{t("s2")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk1.png`} alt="Step 2" />
+        </div>
+        <div className="step">
+          <span>{t("s3")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk2.png`} alt="Step 3" />
+        </div>
+        <div className="step">
+          <span>{t("s4")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk3.png`} alt="Step 4" />
+        </div>
+        <div className="step">
+          <span>{t("s5")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk4.png`} alt="Step 5" />
+        </div>
+
+        
+        
+      </div>
+
         
       <div className="tutorial">
       <h2>{t("s6")}</h2>
