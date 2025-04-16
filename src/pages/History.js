@@ -76,7 +76,7 @@ function History() {
           <img src={`${process.env.PUBLIC_URL}/images/4.jpeg`} alt="Step 4" />
         </div>
         <div className="step">
-          <span>{t("i6")}</span>
+          <span>{t("i8")}</span>
           <img src={`${process.env.PUBLIC_URL}/images/5.jpeg`} alt="Step 5" />
         </div>
         <div className="step">
@@ -84,6 +84,35 @@ function History() {
           <img src={`${process.env.PUBLIC_URL}/images/6.jpg`} alt="Step 6" />
         </div>
 
+      </div>
+
+              {/*小鱿鱼额外的设置教程 */}
+              <div className="tutorial">
+        
+        <h2>{t("macsetting")}</h2>
+        <div className="step">
+          <span>{t("s1")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk0.png`} alt="Step 1" />
+        </div>
+        <div className="step">
+          <span>{t("s2")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk1.png`} alt="Step 2" />
+        </div>
+        <div className="step">
+          <span>{t("s3")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk2.png`} alt="Step 3" />
+        </div>
+        <div className="step">
+          <span>{t("s4")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk3.png`} alt="Step 4" />
+        </div>
+        <div className="step">
+          <span>{t("s5")}</span>
+          <img src={`${process.env.PUBLIC_URL}/images/kk4.png`} alt="Step 5" />
+        </div>
+
+        
+        
       </div>
         
       <div className="tutorial">
