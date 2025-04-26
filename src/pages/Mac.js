@@ -31,7 +31,7 @@ function Mac() {
           </button>
           <button
             className="sumikko"
-            onClick={() => window.open('https://github.com/Diudiu-wl/downloadsquid/releases/download/v1.0.1/xiaoyouyu.dmg.zip')}
+            onClick={() => window.open('https://github.com/Diudiu-wl/downloadsquid/releases/download/v1.0.2/bilisquid.dmg.zip')}
           >
             {t("apple")}
           </button>
