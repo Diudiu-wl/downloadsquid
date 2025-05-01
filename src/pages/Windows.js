@@ -160,7 +160,9 @@ function Windows() {
 
       <div className="tutorial">
         <h2>{t("contact")}</h2>
+        <p>{t("advertise")}</p>
       </div>
+     
       
       <div className="text-button-container" style={{ position: "relative" }}>
           
